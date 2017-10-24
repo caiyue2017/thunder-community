@@ -1,0 +1,644 @@
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    height: 80px;
+    background-color: #338fe4;
+}
+
+.header .layout {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.header .left {
+    float: left;
+}
+
+.header .left .links {
+    display: inline-block;
+    padding-top: 25px;
+    vertical-align: top;
+    line-height: 20px;
+}
+
+.header .left .links a {
+    font-size: 30px;
+    color: #d8efff;
+    text-decoration: none;
+}
+
+.header .right {
+    float: right;
+}
+
+.header .login {
+    padding-top: 21px;
+}
+
+.header .login ul {
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    right: 220px;
+    min-width: 90px;
+    height: auto;
+    background-color: #fff;
+    border: 1px solid #ececec;
+    list-style: none;
+
+}
+
+.header .login ul li {
+    display: block;
+}
+
+.header .login ul li a {
+    color: #434343;
+}
+
+.header .login ul li a:hover {
+    color: #F7B824;
+}
+
+.header .login ul a {
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+}
+
+.header .login a.userImage {
+    display: inline-block;
+    vertical-align: top;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 9;
+    border-radius: 20px;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    background-color: #ecf7ff;
+    color: #338fe4;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.header .login a img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.header .login .text {
+    display: inline-block;
+    line-height: 40px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.header .login a {
+    color: #d8efff;
+    text-decoration: none;
+}
+
+.header .login a.bt {
+    display: inline-block;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    background-color: #ecf7ff;
+    color: #338fe4;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.header .login span {
+    color: #81b9ed;
+    margin-top: 8px;
+}
+
+.body-container {
+    width: 1240px;
+    margin: 30px auto 0;
+    padding: 0;
+}
+
+.user-header {
+    background-image: url(../../img/userBackground.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+.user-header .user-main {
+    display: block;
+    position: relative;
+    height: 276px;
+    border: 1px solid #e2f4ff;
+}
+
+.user-header .user-main .visit {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #777;
+    background-color: rgba(39, 133, 219, .1);
+    text-decoration: none;
+    transition: all .2s ease-out;
+}
+
+.user-header .user-main .avater {
+    margin-top: 20px;
+    font-size: 0;
+    text-align: center;
+}
+
+.avater img {
+    display: inline-block;
+    height: 110px;
+    width: 110px;
+    border-radius: 55px;
+    vertical-align: top;
+    border: 1px solid #d9d9d9;
+}
+
+.user-header .user-main .name {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #5c5c5c;
+}
+
+.user-header .user-main .desc {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+    color: #434343;
+}
+
+.subview {
+    width: 1270px;
+    /*margin: 0 auto 30px;*/
+    margin-left: -25px;
+}
+
+.subview .user-home .user-container {
+    position: relative;
+    margin-top: 20px;
+    padding-right: 290px;
+}
+
+.subview .user-home .user-container .user-main {
+    min-height: 800px;
+    padding: 25px 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul.select-type li {
+    display: inline-block;
+    height: 18px;
+    margin: 7px 0;
+}
+
+ul.select-type li a {
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    margin-top: -7px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #333;
+}
+
+#sendPostNum, #reviewPostNum {
+    color: #696969;
+    line-height: 32px;
+    font-size: 16px;
+}
+
+ul.select-type li a.active {
+    background-color: #f5f5f5;
+    color: #f38400;
+}
+
+.user-main .timeline ul {
+    list-style: none;
+}
+
+.user-main .timeline li {
+    padding-left: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 60px;
+    border-bottom: 1px solid #ededed;
+}
+
+.user-main .timeline li .avatar {
+    display: block;
+    float: left;
+    margin-left: -80px;
+    margin-top: 15px;
+}
+
+.user-main .timeline li .post {
+    display: block;
+    position: relative;
+    width: 100%;
+    font-size: 16px;
+    line-height: 32px;
+    color: #434343;
+}
+
+.user-main .timeline li img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    vertical-align: top;
+    border: 1px solid #d9d9d9;
+}
+
+.user-main .post .title {
+    padding-right: 80px;
+}
+
+.user-main .post .title .light {
+    color: #9e9e9e;
+}
+
+.user-main .post .title a {
+    color: #434343;
+    text-decoration: none;
+}
+
+.user-main .post .summary {
+    color: #5b5b5b;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.user-main .post .info {
+    color: #9e9e9e;
+    font-weight: 100;
+    font-size: 14px;
+}
+
+.user-main .post .sq-link {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 32px;
+    color: #9e9e9e;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.user-main .base {
+    padding: 30px 40px;
+    line-height: 50px;
+    font-size: 16px;
+}
+
+.user-main .base h3.title {
+    display: inline-block;
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.user-main .base .top a {
+    display: inline-block;
+    margin-left: 30px;
+    color: #f38400;
+    text-decoration: none;
+}
+
+.user-main .avatar {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    border: 1px solid #d9d9d9;
+    vertical-align: middle;
+}
+
+.container {
+    width: 1240px;
+}
+
+.container .img img {
+    vertical-align: top;
+}
+
+.container .description {
+    margin-top: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.container .cLeft {
+    display: block;
+    width: 545px;
+    padding-right: 6px;
+    float: left;
+}
+
+.container .logo {
+    float: left;
+    width: 180px;
+    margin-right: 25px;
+    font-size: 0;
+}
+
+.container .logo img {
+    width: 100%;
+    border-radius: 50%;
+    border: 1px solid #d9d9d9;
+}
+
+.container .cText {
+    width: 545px;
+    padding-right: 6px;
+}
+
+.container .cText .cTop {
+    font-size: 0;
+}
+
+.container .cText h2 {
+    display: inline-block;
+    line-height: 28px;
+    vertical-align: top;
+    font-size: 22px;
+    color: #434343;
+    margin-right: 10px;
+}
+
+.container .cText .cData {
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 1;
+    color: #898989;
+}
+
+.container .cText .csText {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #434343;
+    line-height: 30px;
+}
+
+.container .cRight {
+    overflow: hidden;
+    padding-left: 24px;
+    border-left: 1px solid #f0f0f0;
+}
+
+.container .cRight .title {
+    height: 22px;
+    line-height: 22px;
+    font-size: 22px;
+    color: #434343;
+    padding-left: 10px;
+    border-left: 4px solid #338fe4;
+}
+
+.container .cRight ul {
+    margin-top: 10px;
+}
+
+.container .cRight ul li a {
+    font-size: 20px;
+    display: block;
+    line-height: 40px;
+    text-decoration: none;
+    color: #434343;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.container .topic {
+    padding-top: 20px;
+}
+
+.container .topic .topicsTop a {
+    float: right;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.container .topic .topicsTop .right {
+    float: right;
+    margin-top: 2px;
+}
+
+.container .topic .topicsTop .myBtn {
+    width: 106px;
+}
+
+.container .topic .topics {
+    margin: 20px auto;
+    color: #434343;
+    margin-top: 50px;
+}
+
+.container .topic .topics .thead {
+    height: 40px;
+    line-height: 40px;
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.container .topic .topics .tr {
+    font-size: 0;
+}
+
+.container .topic .topics .td {
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.container .topic .topics .filters {
+    position: relative;
+}
+
+.container .topic .topics .td-author {
+    width: 100px;
+}
+
+.container .topic .topics .td-count {
+    width: 100px;
+    text-align: center;
+}
+
+.container .topic .topics .td-title {
+    width: 760px;
+}
+
+.container .topics .thead .select {
+    position: relative;
+    padding-left: 20px;
+}
+
+.container .topics .thead .filter {
+    display: inline-block;
+    vertical-align: top
+}
+
+.container .topic .topics .check {
+    margin-left: 10px;
+}
+
+.container .topic .topics .text {
+    padding-right: 17px;
+}
+
+.container .topic .topics ul {
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: 40px;
+    width: 100%;
+    min-width: 90px;
+    height: auto;
+    background-color: #fff;
+    border: 1px solid #ececec;
+    list-style: none;
+}
+
+.container .topic .topics ul li {
+    display: block;
+}
+
+.container .topic .topics ul a {
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+}
+
+.container .topic .topics .tbody .tr {
+    line-height: 60px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.container .topic .topics .tbody .tr .td {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.container .topic .topics .tbody .tr .td-title {
+    width: 760px;
+}
+
+.container .topic .topics .tbody .tr .td-title span {
+    font-size: 16px;
+    margin-left: 4px;
+}
+
+.container .topic .topics .tbody .tr .td-author {
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+.container .topic .topics .tbody .tr .td-author a {
+    display: block;
+}
+
+.container .topic .topics .tbody .tr .td-author a.main {
+    color: #5c5c5c;
+    line-height: 15px;
+}
+
+.container .topic .topics .tbody .tr .td-author span {
+    display: block;
+}
+
+.container .topic .topics .tbody .tr .td-author span.sub {
+    color: #9e9e9e;
+    line-height: 20px;
+}
+
+.container .topic .topics .tbody .tr .td-count {
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+.container .topic .topics .tbody .tr .td-count span {
+    display: block;
+}
+
+.container .topic .topics .tbody .tr .td-count span.main {
+    color: #5c5c5c;
+    line-height: 15px;
+}
+
+.container .topic .topics .tbody .tr .td-count span.sub {
+    color: #9e9e9e;
+    line-height: 20px;
+}
+
+.container .topic .topics .tbody .tr .td-last {
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+.container .topic .topics .tbody .tr .td-last span {
+    display: block;
+}
+
+.container .topic .topics .tbody .tr .td-last a {
+    display: block;
+}
+
+.container .topic .topics .tbody .tr .td-last a.main {
+    color: #5c5c5c;
+    line-height: 15px;
+}
+
+.container .topic .topics .tbody .tr .td-last span.sub {
+    color: #9e9e9e;
+    line-height: 20px;
+}
+
+.container .topic .topicsBottom a {
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.container .topic .topicsBottom .right {
+    float: right;
+    margin-top: 2px;
+}
+
+.layui-table td, .layui-table th {
+    text-align: center;
+}
+
+a {
+    cursor: pointer;
+}

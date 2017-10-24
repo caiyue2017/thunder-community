@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.UserAttentionDao">
+    <resultMap id="BaseResultMap" type="domain.UserAttention">
+        <id column="userId" property="userId" jdbcType="INTEGER"/>
+        <id column="attentionId" property="attentionId" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="isAttention" resultMap="BaseResultMap">
+        select * from user_attention where userId = #{userId} and attentionId = #{attentionId}
+    </select>
+
+    <select id="countByUId" resultType="Integer">
+        SELECT count(*) from user_attention where userId = #{userId}
+    </select>
+
+    <select id="countByAId" resultType="Integer">
+        select count(*) from user_attention where attentionId = #{attentionId}
+    </select>
+
+    <select id="findByUserId" resultMap="BaseResultMap">
+        select * from user_attention where userId = #{userId}
+    </select>
+
+    <select id="findByAttentionId" resultMap="BaseResultMap">
+        select * from user_attention where attentionId = #{attentionId}
+    </select>
+
+    <delete id="delete">
+        DELETE FROM user_attention WHERE userId = #{userId} AND attentionId = #{attentionId};
+    </delete>
+    <insert id="add">
+        INSERT INTO user_attention(userId,attentionId) VALUES(#{userId},#{attentionId});
+    </insert>
+</mapper>

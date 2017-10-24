@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.ReviewDao">
+    <resultMap id="BaseResultMap" type="domain.Review">
+        <!--column：数据库字段，property：domain类中的字段，jdbcType：封装类型-->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="time" property="time" jdbcType="TIMESTAMP"/>
+        <result column="content" property="content" jdbcType="LONGVARCHAR"/>
+        <result column="userId" property="userId" jdbcType="INTEGER"/>
+        <result column="postId" property="postId" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="img" property="img" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="mysql">id,time,content,userId,postId,username,img</sql>
+
+    <!--添加评论-->
+    <insert id="addReview" parameterType="domain.Review">
+        INSERT INTO review ( <include refid="mysql"/>)
+        VALUES (#{id},#{time},#{content},#{userId},#{postId},#{username},#{img})
+    </insert>
+
+    <!--通过postId查找评论-->
+    <select id="findReviewsByPostId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="mysql"/>
+        from review where postId=#{postId}
+    </select>
+    <select id="findReviewOrderByTime" resultMap="BaseResultMap">
+        SELECT * FROM review ORDER BY TIME DESC
+    </select>
+    <select id="findReviewsByPostIdAndUserId" resultMap="BaseResultMap">
+        SELECT * from review where postId = #{postId} and userId = #{userId}
+    </select>
+    <select id="findReviewsByUserId" resultMap="BaseResultMap">
+        SELECT * from review where userId = #{userId}
+    </select>
+
+    <delete id="deleteById">
+        DELETE FROM review WHERE id = #{id};
+    </delete>
+</mapper>

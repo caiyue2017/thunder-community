@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.UserPostDao">
+    <resultMap id="BaseResultMap" type="domain.UserPost">
+        <id column="userId" property="userId" jdbcType="INTEGER"/>
+        <id column="postId" property="postId" jdbcType="INTEGER"/>
+        <result column="isUp" property="isUp" jdbcType="VARCHAR"/>
+        <result column="isStore" property="isStore" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+    <select id="find" resultMap="BaseResultMap" >
+        select * from user_post where userId = #{userId} AND postId = #{postId}
+    </select>
+
+    <select id="findUserStores" resultType="Integer">
+        SELECT postId FROM user_post WHERE userId = #{userId} AND isStore = 'true';
+    </select>
+
+    <update id="setIsUp">
+        update user_post set isUp = #{isUp} where userId = #{userId} AND postId = #{postId}
+    </update>
+    <update id="setIsStore">
+        update user_post set isStore = #{isStore} where userId = #{userId} AND postId = #{postId}
+    </update>
+
+    <insert id="add">
+        INSERT INTO user_post(userId,postId) VALUES(#{userId},#{postId});
+    </insert>
+</mapper>

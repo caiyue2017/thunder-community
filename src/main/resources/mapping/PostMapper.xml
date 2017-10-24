@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.PostDao">
+    <resultMap id="BaseResultMap" type="domain.Post">
+        <!--column：数据库字段，property：domain类中的字段，jdbcType：封装类型-->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="author" property="author" jdbcType="VARCHAR"/>
+        <result column="time" property="time" jdbcType="TIMESTAMP"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="userId" property="userId" jdbcType="INTEGER"/>
+        <result column="content" property="content" jdbcType="LONGVARCHAR"/>
+        <result column="sectionId" property="sectionId" jdbcType="INTEGER"/>
+        <result column="isTop" property="isTop" jdbcType="VARCHAR"/>
+        <result column="isGood" property="isGood" jdbcType="VARCHAR"/>
+        <result column="isDelete" property="isDelete" jdbcType="VARCHAR"/>
+        <result column="browseNum" property="browseNum" jdbcType="INTEGER"/>
+        <result column="reviewNum" property="reviewNum" jdbcType="INTEGER"/>
+        <result column="lastReviewUN" property="lastReviewUN" jdbcType="VARCHAR"/>
+        <result column="lastReviewT" property="lastReviewT" jdbcType="TIMESTAMP"/>
+        <result column="upNum" property="upNum" jdbcType="INTEGER"/>
+        <result column="storeNum" property="storeNum" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="mysql">id,author,time,title,userId,content,sectionId,isTop,isGood,isDelete,browseNum,reviewNum,lastReviewUN,lastReviewT</sql>
+
+    <!--添加帖子-->
+    <insert id="addPost" parameterType="domain.Post">
+        INSERT INTO post ( <include refid="mysql"/>)
+        VALUES (#{id},#{author},#{time},#{title},#{userId},#{content},#{sectionId},"false","false","false",0,0,#{lastReviewUN},#{lastReviewT})
+    </insert>
+
+
+    <!--查找版块下的所有帖子-->
+    <!-- mybatis 非常的智能，返回值统一使用 resultMap="BaseResultMap"，mybatis会根据查询到的条目数量自动进行判断，如果是一条就返回对象，如果是多条就返回List对象列表-->
+    <select id="findPostsBySID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        *
+        from post where sectionId=#{sectionId}
+    </select>
+
+    <select id="findPostById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+      SELECT * FROM post WHERE id = #{id}
+    </select>
+
+    <select id="findPostsByWord" resultMap="BaseResultMap">
+        SELECT * FROM post WHERE id IN
+(
+SELECT id FROM post WHERE title LIKE #{word}
+);
+
+    </select>
+    <!--基于Dao层的@Param注解-->
+    <update id="updatePostTop" >
+        update post set isTop = #{isTop} where id = #{id}
+    </update>
+
+    <update id="updatePostGood" >
+        update post set isGood = #{isGood} where id = #{id}
+    </update>
+
+    <update id="deletePostById" >
+        update post set isDelete = "true" where id = #{id}
+    </update>
+
+    <update id="AddOneBrowseRecord">
+        UPDATE post SET browseNum = browseNum+1 WHERE id = #{id};
+    </update>
+
+    <update id="setLastUsernameAndTime">
+        update post set lastReviewUN = #{username},lastReviewT = #{time},reviewNum=reviewNum+1 where id = #{id}
+    </update>
+
+    <update id="reduceUpNum">
+        update post set upNum = upNum-1 WHERE id = #{id};
+    </update>
+    <update id="addUpNum">
+        update post set upNum = upNum+1 WHERE id = #{id};
+    </update>
+    <update id="reduceStoreNum">
+        update post set storeNum = storeNum-1 WHERE id = #{id};
+    </update>
+    <update id="addStoreNum">
+        update post set storeNum = storeNum+1 WHERE id = #{id};
+    </update>
+    <select id="findPostsOrderByBrowseNum" resultMap="BaseResultMap">
+        select * from post order by browseNum desc
+    </select>
+    <select id="findPostsOrderByReviewNum" resultMap="BaseResultMap">
+        select * from post order by reviewNum desc
+    </select>
+    <select id="findAllPosts" resultMap="BaseResultMap">
+        select * from post
+    </select>
+    <select id="findTodayPosts" resultMap="BaseResultMap">
+        SELECT * FROM post WHERE TO_DAYS(TIME)=TO_DAYS(NOW());
+    </select>
+    <select id="findPostsByUId" resultType="Integer">
+        SELECT COUNT(*) FROM post WHERE userId = #{userId};
+    </select>
+    <select id="findPostsByUserId" resultMap="BaseResultMap">
+        SELECT * FROM post WHERE userId = #{userId};
+    </select>
+</mapper>

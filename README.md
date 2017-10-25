@@ -1,12 +1,14 @@
 # Thunder-Community
-基于Spring、SpringMVC、MyBatis的雷霆社区开发
+一个服务于雷霆球迷的社区
 
-- 主要功能：手机号短信注册、站内检索、分页排序、评论发帖、点赞收藏、个人主页（管理发表/评论/点赞/收藏的帖子、粉丝、关注人、用户资料）、管理员主页（帖子/用户/网站管理，如加精置顶、禁用用户等）
-- 关键技术：Java、Maven、Spring、SpringMVC、Mybatis、MySQL、Shiro、Ajax、WebSocket、JavaScript、jQuery
-- 采用Shiro实现单点登录、“记住我”和权限控制
-- 集成第三方"阿里大于"实现手机短信提醒
-- 采用Ajax技术实现数据实时更新
-- 采用WebSocket技术实现消息异步推送
-- 采用jQuery实现用户界面优化
+- 基于Spring、SpringMVC、MyBatis开发，使用Maven构建项目、管理依赖，数据库采用MySQL
+- 使用Shiro实现单点登录、“记住我”和权限控制
+- 使用WebSocket，实现更改消息从服务端到客户端主动的推送
+- 采用AJAX实现数据实时更新，集成第三方，实现手机短信注册功能
+- 使用HTML5、CSS3、JavaScript、jQuery、layer编写前端页面，集成富文本编辑器CKeditor· 基于Spring、SpringMVC、MyBatis开发，使用Maven构建项目、管理依赖，数据库采用MySQL
+- 使用Shiro实现单点登录、“记住我”和权限控制
+- 使用WebSocket，实现更改消息从服务端到客户端主动的推送
+- 采用AJAX实现数据实时更新，集成第三方，实现手机短信注册功能
+- 使用HTML5、CSS3、JavaScript、jQuery、layer编写前端页面，集成富文本编辑器CKeditor
 - 账号：admin/user 123456
  

@@ -1,5 +1,4 @@
 # Thunder-Community
-一个服务于雷霆球迷的社区
 
 - 基于Spring、SpringMVC、MyBatis开发，使用Maven构建项目、管理依赖，数据库采用MySQL
 - 使用Shiro实现单点登录、“记住我”和权限控制
